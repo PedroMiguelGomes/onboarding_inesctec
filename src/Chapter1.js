@@ -12,24 +12,7 @@ import chapter1 from "./Images/man.jpg";
 
 export default class Chapter1 extends React.Component {
 
-    constructor(props) {
-        super(props);
-     
-        this.state = {
-          data: null,
-        };
-    }
-
-    componentDidMount() {
-        const apiUrl = 'https://run.mocky.io/v3/d83266e5-dea2-45a1-af32-624db290d7b0';
-        fetch(apiUrl)
-          .then(response => response.json())
-          .then(data => this.setState({data}));
-      }
-
     render() {
-        const { data } = this.state;
-
         return (
             <Container>
                 <Row className="header">
@@ -47,7 +30,7 @@ export default class Chapter1 extends React.Component {
                         <Image src={chapter1} roundedCircle className="levelImg"/>
                         <br />
                         <br />
-                        <ProgressBar now={data.um} />
+                        <ProgressBar now={100} />
                         {/*</Link>*/}
                     </Col>
                     <Col>
