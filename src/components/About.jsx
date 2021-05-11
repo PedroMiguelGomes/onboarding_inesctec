@@ -1,108 +1,80 @@
-import React, { Component, useState } from "react";
-
-import Jumbotron from "react-bootstrap/Jumbotron";
-import Toast from "react-bootstrap/Toast";
+import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
+import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Image from "react-bootstrap/Image";
 import Badge from "react-bootstrap/Badge";
+
 import "../App.css";
 
+export default function Contact(){
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
+  const history = useHistory();
 
-class About extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedOption: ""
-    };
+  function validateForm() {
+    return email.length > 0;
   }
 
-  handleOptionChange = (changeEvent) => {
-    this.setState({
-      selectedOption: changeEvent.target.value
-    });
-  };
-
-  handleFormSubmit = (formSubmitEvent) => {
-    formSubmitEvent.preventDefault();
-    console.log("You have submitted:", this.state.selectedOption);
-  };
-
-  render() {
-    const select = this.state.selectedOption;
-    return (
-      <form onSubmit={this.handleFormSubmit} className="p-3">
-        <div>Qual � a resposta certa?</div>
+  function handleSubmit(event) {
+    event.preventDefault();
+    if(email=="teste" && password=="123"){
+      let path = `/about`; 
+      history.push(path);
+    }else{
+      setPassword("f");
+      alert(email);
+    }
+  }
+  return(
+  <Container className="header">
+      <Form className="p-4" onSubmit={handleSubmit}>
+      <div>Qual é a resposta certa?</div>
+      <br />
+      <Form.Check
+          type="radio"
+          label="Opção 1"
+          name="formHorizontalRadios"
+          id="formHorizontalRadios1"
+          value="option1"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Form.Check
+          type="radio"
+          label="Opção 2"
+          name="formHorizontalRadios"
+          id="formHorizontalRadios2"
+          value="option2"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Form.Check
+          type="radio"
+          label="Opção 3"
+          name="formHorizontalRadios"
+          id="formHorizontalRadios3"
+          value="option3"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Form.Check
+          type="radio"
+          label="Opção 4"
+          name="formHorizontalRadios"
+          id="formHorizontalRadios4"
+          value="option4"
+          onChange={(e) => setEmail(e.target.value)}
+        />
         <br />
-        <div className="form-check">
-          <label>
-            <input
-              type="radio"
-              name="react-tips"
-              value="option1"
-              checked={this.state.selectedOption === "option1"}
-              onChange={this.handleOptionChange}
-              className="form-check-input"
-            />
-            Option 1
-          </label>
+        <Button variant="primary" type="submit" disabled={!validateForm()}>
+          Login
+        </Button>
+        <div disabled={!handleSubmit}>
+          {password === "f" && email === "option3" ? (<Badge variant="success">Success</Badge>) : password === "f" ? (<Badge variant="danger">Danger</Badge>) : (<div></div>)}
         </div>
-        <div className="form-check">
-          <label>
-            <input
-              type="radio"
-              name="react-tips"
-              value="option2"
-              checked={this.state.selectedOption === "option2"}
-              onChange={this.handleOptionChange}
-              className="form-check-input"
-            />
-            Option 2
-          </label>
-        </div>
-        <div className="form-check">
-          <label>
-            <input
-              type="radio"
-              name="react-tips"
-              value="option3"
-              checked={this.state.selectedOption === "option3"}
-              onChange={this.handleOptionChange}
-              className="form-check-input"
-            />
-            Option 3
-          </label>
-        </div>
-        <div className="form-check">
-          <label>
-            <input
-              type="radio"
-              name="react-tips"
-              value="option4"
-              checked={this.state.selectedOption === "option4"}
-              onChange={this.handleOptionChange}
-              className="form-check-input"
-            />
-            Option 4
-          </label>
-        </div>
-        <div className="form-group">
-          <button className="btn btn-primary mt-2" type="submit">
-            Save
-          </button>
-        </div>
-        <div>
-          {select === "option3" ? (
-            <Badge variant="success">Success</Badge>
-          ) : select === "" ? (
-            <div></div>
-          ) : (
-            <Badge variant="danger">Danger</Badge>
-          )}
-        </div>
-      </form>
-    );
-  }
+      </Form>
+  </Container>
+  );
 }
 
-export default About;
