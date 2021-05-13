@@ -1,5 +1,6 @@
 import React from "react";
 
+import axios from 'axios';
 
 import ResponsiveEmbed from "react-bootstrap/ResponsiveEmbed";
 import Toast from "react-bootstrap/Toast";
@@ -10,6 +11,11 @@ import Button from "react-bootstrap/Button";
 const App = () => (
   <Container className="p-3 header">
     <h1 className="">Subchapter</h1>
+    <div style={{ width: 660, height: "auto" }}>
+      <ResponsiveEmbed aspectRatio="16by9">
+        <embed type="video/webm" src="bee.mp4" />
+      </ResponsiveEmbed>
+    </div>
     <p>
       ISTO ESTÁ LONGO DE PROPÓSITO, É PARA TESTAR A NAVBAR<br />
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -230,11 +236,7 @@ const App = () => (
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
     </p>
-    <div style={{ width: 660, height: "auto" }}>
-      <ResponsiveEmbed aspectRatio="16by9">
-        <embed type="video/webm" src="bee.mp4" />
-      </ResponsiveEmbed>
-    </div>
+    
   </Container>
 );
 

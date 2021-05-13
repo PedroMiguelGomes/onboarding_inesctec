@@ -6,6 +6,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 
+import axios from 'axios';
 import "../App.css";
 
 export default function Contact(){

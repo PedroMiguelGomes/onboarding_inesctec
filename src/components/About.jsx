@@ -6,6 +6,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 import Badge from "react-bootstrap/Badge";
+import axios from 'axios';
 
 import "../App.css";
 
@@ -26,7 +27,7 @@ export default function Contact(){
       history.push(path);
     }else{
       setPassword("f");
-      alert(email);
+      /*alert(email);*/
     }
   }
   return(
@@ -40,7 +41,7 @@ export default function Contact(){
           name="formHorizontalRadios"
           id="formHorizontalRadios1"
           value="option1"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {setEmail(e.target.value);setPassword("")}}
         />
         <Form.Check
           type="radio"
@@ -48,7 +49,7 @@ export default function Contact(){
           name="formHorizontalRadios"
           id="formHorizontalRadios2"
           value="option2"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {setEmail(e.target.value);setPassword("")}}
         />
         <Form.Check
           type="radio"
@@ -56,7 +57,7 @@ export default function Contact(){
           name="formHorizontalRadios"
           id="formHorizontalRadios3"
           value="option3"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {setEmail(e.target.value);setPassword("")}}
         />
         <Form.Check
           type="radio"
@@ -64,11 +65,11 @@ export default function Contact(){
           name="formHorizontalRadios"
           id="formHorizontalRadios4"
           value="option4"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {setEmail(e.target.value);setPassword("")}}
         />
         <br />
         <Button variant="primary" type="submit" disabled={!validateForm()}>
-          Login
+          Responder
         </Button>
         <div disabled={!handleSubmit}>
           {password === "f" && email === "option3" ? (<Badge variant="success">Success</Badge>) : password === "f" ? (<Badge variant="danger">Danger</Badge>) : (<div></div>)}
