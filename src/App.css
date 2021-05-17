@@ -44,3 +44,12 @@
 .locked {
   filter: grayscale(100%);
 }
+
+.bigtext{
+  margin-bottom: 10%;
+}
+
+.vid{
+  width: 100%;
+  height: "auto"
+}

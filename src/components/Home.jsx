@@ -11,12 +11,12 @@ import Button from "react-bootstrap/Button";
 const App = () => (
   <Container className="p-3 header">
     <h1 className="">Subchapter</h1>
-    <div style={{ width: 660, height: "auto" }}>
+    <div class="vid">
       <ResponsiveEmbed aspectRatio="16by9">
         <embed type="video/webm" src="bee.mp4" />
       </ResponsiveEmbed>
     </div>
-    <p>
+    <p class="bigtext">
       ISTO ESTÁ LONGO DE PROPÓSITO, É PARA TESTAR A NAVBAR<br />
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -236,7 +236,6 @@ const App = () => (
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
     </p>
-    
   </Container>
 );
 

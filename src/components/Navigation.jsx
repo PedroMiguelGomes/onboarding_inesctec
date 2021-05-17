@@ -11,7 +11,7 @@ function Navigation(props) {
   return (
     <div className="navigation">
       <Navbar bg="dark" variant="dark" expand="lg" >
-        <Navbar.Brand href="/">React Multi-Page Website</Navbar.Brand>
+        <Navbar.Brand href="/">INESC TEC</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
