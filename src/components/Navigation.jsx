@@ -21,6 +21,7 @@ function Navigation(props) {
           >
             <Nav.Link href="/chap">Chap</Nav.Link>
             <Nav.Link href="/game">Game</Nav.Link>
+            <Nav.Link href="/contact">Contact</Nav.Link>
             <NavDropdown title="Drop" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>

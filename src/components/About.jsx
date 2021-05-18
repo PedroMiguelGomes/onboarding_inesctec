@@ -11,7 +11,7 @@ import "../App.css";
 export default function Contact() {
 
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState(false);
   const [ind, setInd] = useState(0);
   const questions = [];
 
@@ -24,19 +24,12 @@ export default function Contact() {
   function activateLasers() {
     setInd(ind+1);
     setEmail("");
-    setPassword("");
+    setPassword(false);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (email == "teste" && password == "123") {
-      let path = `/about`;
-      history.push(path);
-    } else {
-      setPassword("f");
-      
-      /*alert(email);*/
-    }
+    setPassword(true);
   }
 
   return (
@@ -96,7 +89,7 @@ export default function Contact() {
                   Proximo
                 </Button>
                 <div>
-                  {password === "f" && email === response.data[ind]['correct'].toString() ? (<Badge variant="success">Success</Badge>) : password === "f" ? (<Badge variant="danger">Danger</Badge>) : (<div></div>)}
+                  {password === "true" && email === response.data[ind]['correct'].toString() ? (<Badge variant="success">Success</Badge>) : password === "f" ? (<Badge variant="danger">Danger</Badge>) : (<div></div>)}
                 </div>
               </Form>
             )

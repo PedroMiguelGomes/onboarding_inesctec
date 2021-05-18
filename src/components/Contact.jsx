@@ -12,6 +12,7 @@ import "../App.css";
 export default function Contact(){
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [now, setNow] = useState(true);
 
   const history = useHistory();
 
@@ -21,12 +22,19 @@ export default function Contact(){
 
   function handleSubmit(event) {
     event.preventDefault();
-    if(email=="teste" && password=="123"){
-      let path = `/about`; 
-      history.push(path);
-    }else{
-      alert("Essa conta não existe");
-    }
+    axios.get('https://run.mocky.io/v3/d630482d-1f59-40c8-a6d6-95df829677f8').then(resp => {
+      resp.data.forEach(element => {
+        if(email==element['user'] && password=="123"){
+          setNow(false);
+          let path = `/about`; 
+          history.push(path);
+        }
+      });
+    });
+    
+    if(now){
+      alert("Não existe");
+    }  
   }
   return(
   <Container className="header">
