@@ -6,3 +6,4 @@ export { default as Contact } from "./Contact";
 export { default as Game } from "./Game";
 export { default as Chap } from "./Chap";
 export { default as Plus } from "./Plus";
+export { default as Content } from "./Content";

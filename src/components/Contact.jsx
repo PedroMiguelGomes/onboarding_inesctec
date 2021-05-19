@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
-
+import { useAsync } from "react-async"
 import axios from 'axios';
 import "../App.css";
 
@@ -21,20 +21,26 @@ export default function Contact(){
   }
 
   function handleSubmit(event) {
+    setNow(true);
     event.preventDefault();
     axios.get('https://run.mocky.io/v3/d630482d-1f59-40c8-a6d6-95df829677f8').then(resp => {
-      resp.data.forEach(element => {
-        if(email==element['user'] && password=="123"){
-          setNow(false);
-          let path = `/about`; 
-          history.push(path);
-        }
+      var bar = new Promise((resolve, reject) => {
+        resp.data.forEach(element => {
+          if(email==element['user'] && password=="123"){
+            setNow(false);
+            let path = `/chap`; 
+            history.push(path);
+          }
+        });
       });
+      bar.then(() => {
+        if(now){
+          alert("Não existe");
+        }  
+      });
+      
     });
     
-    if(now){
-      alert("Não existe");
-    }  
   }
   return(
   <Container className="header">

@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Navigation, Footer, Home, About, Contact, Game, Chap, Plus } from "./components";
+import { Navigation, Footer, Home, About, Contact, Game, Chap, Plus, Content } from "./components";
 
 import axios from 'axios';
 
@@ -17,6 +17,7 @@ function App() {
           <Route path="/game" exact component={() => <Game />} />
           <Route path="/chap" exact component={() => <Chap />} />
           <Route path="/plus" exact component={() => <Plus />} />
+          <Route path="/content" exact component={() => <Content />} />
         </Switch>
         <Footer />
       </Router>

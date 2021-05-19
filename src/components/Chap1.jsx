@@ -25,7 +25,7 @@ const Chap1 = () => (
     <Row className="header">
       <Col>
         <br />
-		<Link class="nav-link" to="/">
+		<Link class="nav-link" to="/content">
         <h3>Subchapter 1</h3>
         <Image src="Man.jpeg" roundedCircle />
         <br />
@@ -35,7 +35,7 @@ const Chap1 = () => (
       </Col>
       <Col>
         <br />
-		<Link class="nav-link" to="/">
+		<Link class="nav-link" to="/content">
         <h3>Subchapter 2</h3>
         <Image src="Man.jpeg" roundedCircle />
         <br />
