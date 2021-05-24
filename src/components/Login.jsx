@@ -9,7 +9,7 @@ import { useAsync } from "react-async"
 import axios from 'axios';
 import "../App.css";
 
-export default function Contact(){
+export default function Login(){
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [now, setNow] = useState(true);
@@ -24,23 +24,17 @@ export default function Contact(){
     setNow(true);
     event.preventDefault();
     axios.get('https://run.mocky.io/v3/d630482d-1f59-40c8-a6d6-95df829677f8').then(resp => {
-      var bar = new Promise((resolve, reject) => {
         resp.data.forEach(element => {
-          if(email==element['user'] && password=="123"){
+          if(email==element['user'] && password==element['pass']){
             setNow(false);
             let path = `/chap`; 
             history.push(path);
           }
-        });
-      });
-      bar.then(() => {
-        if(now){
-          alert("Não existe");
-        }  
-      });
-      
+      });      
     });
-    
+    /*if(now){
+      alert("Não existe");
+    }*/
   }
   return(
   <Container className="header">

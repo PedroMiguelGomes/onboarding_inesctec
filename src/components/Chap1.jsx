@@ -27,7 +27,7 @@ const Chap1 = () => (
         <br />
 		<Link class="nav-link" to="/content">
         <h3>Subchapter 1</h3>
-        <Image src="Man.jpeg" roundedCircle />
+        <Image src="inesctec.jpeg" roundedCircle />
         <br />
         <br />
         <ProgressBar now={60} />
@@ -35,7 +35,7 @@ const Chap1 = () => (
       </Col>
       <Col>
         <br />
-		<Link class="nav-link" to="/content">
+		<Link class="nav-link" to="/game">
         <h3>Subchapter 2</h3>
         <Image src="Man.jpeg" roundedCircle />
         <br />

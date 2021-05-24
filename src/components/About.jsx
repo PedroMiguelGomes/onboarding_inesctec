@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Badge from "react-bootstrap/Badge";
 import { AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios } from 'react-axios'
-
+import axios from 'axios';
 import "../App.css";
 
 export default function Contact() {
@@ -13,9 +13,11 @@ export default function Contact() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState(false);
   const [ind, setInd] = useState(0);
+  const [cnt, setCnt] = useState(0);
   const questions = [];
 
   const history = useHistory();
+
 
   function validateForm() {
     return email.length > 0;
@@ -29,6 +31,10 @@ export default function Contact() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    axios.get('https://run.mocky.io/v3/7482d1de-a002-4463-8c0c-46e274cb6f4f').then(resp => {
+          alert(resp.data.length);
+    });
+  
     setPassword(true);
   }
 
@@ -43,6 +49,7 @@ export default function Contact() {
             return (<div>Loading...</div>)
           }
           else if (response !== null) {
+            
             return (
               <Form className="p-4" onSubmit={handleSubmit}>
                 <br />
@@ -89,7 +96,7 @@ export default function Contact() {
                   Proximo
                 </Button>
                 <div>
-                  {password === "true" && email === response.data[ind]['correct'].toString() ? (<Badge variant="success">Success</Badge>) : password === "f" ? (<Badge variant="danger">Danger</Badge>) : (<div></div>)}
+                  {password === true && email === response.data[ind]['correct'].toString() ? (<Badge variant="success">Success</Badge>) : password === true ? (<Badge variant="danger">Danger</Badge>) : (<div></div>)}
                 </div>
               </Form>
             )

@@ -10,7 +10,7 @@ import Button from "react-bootstrap/Button";
 
 const App = () => (
   <Container className="p-3 header">
-    <h1 className="">Subchapter</h1>
+    <h1 className="">Introdução</h1>
     <div class="vid">
       <ResponsiveEmbed aspectRatio="16by9">
         <embed type="video/webm" src="bee.mp4" />
