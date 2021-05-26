@@ -22,10 +22,7 @@ export default class Navigation extends Component {
   
   componentDidMount() {
     axios.get('https://run.mocky.io/v3/c8a5f315-1174-4b15-99d7-3e7292a550ea').then(res => {
-      alert(res.data);
-      
       this.setState( res.data );
-
     });
   }  
   render() {

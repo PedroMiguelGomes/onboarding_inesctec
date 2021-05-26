@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -37,17 +38,16 @@ export default function Login(){
     }*/
   }
   return(
-  <Container className="header">
+  <Container class="mx-auto" style={{ width:"300px"}}>
       <Image src="logo.png" />
-      <Form className="p-4" onSubmit={handleSubmit}>
-        <Form.Group controlId="email">
+      <Form className="" onSubmit={handleSubmit} >
+        <Form.Group controlId="email" >
           <Form.Control 
           type="username" 
           placeholder="Username"
           value={email}
           onChange={(e) => setEmail(e.target.value)} />
         </Form.Group>
-
         <Form.Group controlId="password">
           <Form.Control 
           type="password" 
