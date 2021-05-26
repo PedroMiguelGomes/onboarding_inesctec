@@ -24,17 +24,20 @@ export default function Contact() {
   }
 
   function activateLasers() {
+    if(ind+1==cnt){
+      let path = `/`; 
+      history.push(path);
+    }
     setInd(ind+1);
+    
+    
     setEmail("");
     setPassword(false);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    axios.get('https://run.mocky.io/v3/7482d1de-a002-4463-8c0c-46e274cb6f4f').then(resp => {
-          alert(resp.data.length);
-    });
-  
+    alert(ind+"|"+cnt);
     setPassword(true);
   }
 
@@ -49,7 +52,9 @@ export default function Contact() {
             return (<div>Loading...</div>)
           }
           else if (response !== null) {
-            
+            axios.get('https://run.mocky.io/v3/7482d1de-a002-4463-8c0c-46e274cb6f4f').then(resp => {
+              setCnt(resp.data.length);
+            });
             return (
               <Form className="p-4" onSubmit={handleSubmit}>
                 <br />

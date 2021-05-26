@@ -20,7 +20,7 @@ const App = () => (
       Neste capitulo, vais aprender sobre algo.
       Acho que aqui temos de usar o Axios.
       <br />
-      <Button href="/about">Questionario</Button>
+      <Button href="/quiz">Questionario</Button>
     </p>
   </Container>
 );

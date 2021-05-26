@@ -1,9 +1,8 @@
 export { default as Navigation } from "./Navigation";
 export { default as Footer } from "./Footer";
 export { default as Home } from "./Home";
-export { default as About } from "./About";
-export { default as Login } from "./Login";
-export { default as Game } from "./Game";
+export { default as Quiz } from "./Quiz";
+export { default as Tasks } from "./Tasks";
 export { default as Chap } from "./Chap";
 export { default as Plus } from "./Plus";
-export { default as Content } from "./Content";
+export { default as Subchap } from "./Subchap";
