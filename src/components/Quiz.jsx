@@ -4,8 +4,7 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Badge from "react-bootstrap/Badge";
-import { AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios } from 'react-axios'
-import axios from 'axios';
+import { Get } from 'react-axios'
 import "../App.css";
 
 export default function Contact() {
@@ -24,7 +23,7 @@ export default function Contact() {
   }
 
   function activateLasers() {
-    if(ind+1==cnt){
+    if(ind+1===cnt){
       let path = `/`; 
       history.push(path);
     }

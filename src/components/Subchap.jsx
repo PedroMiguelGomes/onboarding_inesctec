@@ -1,9 +1,5 @@
 import React from "react";
-
-import axios from 'axios';
-
 import ResponsiveEmbed from "react-bootstrap/ResponsiveEmbed";
-import Toast from "react-bootstrap/Toast";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 

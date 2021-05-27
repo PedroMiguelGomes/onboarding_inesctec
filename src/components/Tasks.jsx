@@ -1,13 +1,5 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
 import axios from 'axios';
-
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import FormControl from "react-bootstrap/FormControl";
-import Button from "react-bootstrap/Button";
-import { AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios } from 'react-axios'
 
 import Form from "react-bootstrap/Form";
 export default class Navigation extends Component {

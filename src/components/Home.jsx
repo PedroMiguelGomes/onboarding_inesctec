@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
-import { useAsync } from "react-async"
 import axios from 'axios';
 import "../App.css";
 
@@ -26,7 +23,7 @@ export default function Login(){
     event.preventDefault();
     axios.get('https://run.mocky.io/v3/d630482d-1f59-40c8-a6d6-95df829677f8').then(resp => {
         resp.data.forEach(element => {
-          if(email==element['user'] && password==element['pass']){
+          if(email===element['user'] && password===element['pass']){
             setNow(false);
             let path = `/chap`; 
             history.push(path);
