@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from 'react-router-dom';
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -8,32 +8,60 @@ import axios from 'axios';
 import "../App.css";
 
 export default function Login(){
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [now, setNow] = useState(true);
+  const [user, setUser] = useState();
 
   const history = useHistory();
 
-  function validateForm() {
-    return email.length > 0 && password.length > 0;
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser);
+      setUser(foundUser);
+    }
+  }, []);
+
+  // logout the user
+  const handleLogout = () => {
+    setUser({});
+    setUsername("");
+    setPassword("");
+    localStorage.clear();
+  };
+
+  // login the user
+  const handleSubmit = async e => {
+    e.preventDefault();
+    const user = { username, password };
+    // send the username and password to the server
+    const response = await axios.post(
+      "http://blogservice.herokuapp.com/api/login",
+      user
+    );
+    // set the state of the user
+    setUser(response.data);
+    // store the user in localStorage
+    localStorage.setItem("user", JSON.stringify(response.data));
+    console.log(response.data["username"]);
+    let path = `/chap`; 
+    history.push(path);
+    window.location.reload();
+  };
+
+  // if there's a user show the message below
+  if (user) {
+    let path = `/chap`; 
+    history.push(path);
+    window.location.reload();
   }
 
-  function handleSubmit(event) {
-    setNow(true);
-    event.preventDefault();
-    axios.get('https://run.mocky.io/v3/d630482d-1f59-40c8-a6d6-95df829677f8').then(resp => {
-        resp.data.forEach(element => {
-          if(email===element['user'] && password===element['pass']){
-            setNow(false);
-            let path = `/chap`; 
-            history.push(path);
-          }
-      });      
-    });
-    /*if(now){
-      alert("Não existe");
-    }*/
+  function validateForm() {
+    return username.length > 0 && password.length > 0;
   }
+
+
   return(
   <Container class="mx-auto" style={{ width:"300px"}}>
       <Image src="logo.png" />
@@ -42,8 +70,8 @@ export default function Login(){
           <Form.Control 
           type="username" 
           placeholder="Username"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)} />
+          value={username}
+          onChange={(e) => setUsername(e.target.value)} />
         </Form.Group>
         <Form.Group controlId="password">
           <Form.Control 

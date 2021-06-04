@@ -1,40 +1,19 @@
-import React from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
+import "../App.css";
 
-export default class PersonList extends React.Component {
-  state = {
-    name: '',
-  }
+export default function Login(){
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [user, setUser] = useState();
 
-  handleChange = event => {
-    this.setState({ name: event.target.value });
-  }
-
-  handleSubmit = event => {
-    event.preventDefault();
-
-    const user = {
-      name: this.state.name
-    };
-
-    axios.post(`test.txt`, { user })
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-      })
-  }
-
-  render() {
-    return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Person Name:
-            <input type="text" name="name" onChange={this.handleChange} />
-          </label>
-          <button type="submit">Add</button>
-        </form>
-      </div>
-    )
-  }
+  const history = useHistory();
+  setUser({});
+  setUsername("");
+  setPassword("");
+  localStorage.clear();
+  let path = `/`; 
+  history.push(path);
+  window.location.reload();
 }
+

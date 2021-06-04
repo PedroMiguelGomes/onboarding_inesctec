@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import axios from 'axios';
 
 import Nav from "react-bootstrap/Nav";
@@ -10,18 +10,27 @@ export default class Navigation extends Component {
     super(props);
 
     this.state = {
-      user: [],
+      user: "",
       userQuestions: [],
       questionsList: []
     };
   }
 
+
+
   componentDidMount() {
-    axios.get("https://run.mocky.io/v3/9127525c-5192-48b9-a97f-02ce0fcfaa84")
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser);
+      this.setState({ user: foundUser["username"]});
+    }
+    
+
+    /*axios.get("https://run.mocky.io/v3/9127525c-5192-48b9-a97f-02ce0fcfaa84")
       .then((res) => {
         const user = res.data;
         this.setState({ user: user });
-      });
+      });*/
   }
 
   render() {
@@ -38,14 +47,10 @@ export default class Navigation extends Component {
           >
             <Nav.Link href="/chap">Chap</Nav.Link>
             <Nav.Link href="/tasks">Tasks</Nav.Link>
-            <Nav.Link href="/login">Login</Nav.Link>
-            <NavDropdown title="Drop" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link>{this.state.user.name}</Nav.Link>
+            {this.state.user ? (
+            <NavDropdown title={this.state.user} id="navbarScrollingDropdown">
+              <NavDropdown.Item href="/plus">Logout</NavDropdown.Item>
+            </NavDropdown>): (<div></div>)}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
