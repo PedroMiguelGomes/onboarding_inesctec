@@ -11,7 +11,7 @@ export default function Login(){
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [now, setNow] = useState(true);
-  const [user, setUser] = useState();
+  const [user, setUser] = useState("");
 
   const history = useHistory();
 
@@ -25,7 +25,7 @@ export default function Login(){
 
   // logout the user
   const handleLogout = () => {
-    setUser({});
+    setUser("");
     setUsername("");
     setPassword("");
     localStorage.clear();
@@ -34,20 +34,17 @@ export default function Login(){
   // login the user
   const handleSubmit = async e => {
     e.preventDefault();
-    const user = { username, password };
     // send the username and password to the server
-    const response = await axios.post(
-      "http://blogservice.herokuapp.com/api/login",
-      user
-    );
-    // set the state of the user
-    setUser(response.data);
-    // store the user in localStorage
-    localStorage.setItem("user", JSON.stringify(response.data));
-    console.log(response.data["username"]);
-    let path = `/chap`; 
-    history.push(path);
-    window.location.reload();
+    const response = await axios.get("https://run.mocky.io/v3/9127525c-5192-48b9-a97f-02ce0fcfaa84");
+    if(username===response.data["name"] && password===response.data["password"]){
+        // set the state of the user
+      setUser(response.data);
+      // store the user in localStorage
+      localStorage.setItem("user", JSON.stringify(response.data));
+      let path = `/chap`; 
+      history.push(path);
+      window.location.reload();
+    }
   };
 
   // if there's a user show the message below
@@ -88,4 +85,3 @@ export default function Login(){
   </Container>
   );
 }
-

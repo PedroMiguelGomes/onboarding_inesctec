@@ -21,8 +21,9 @@ export default class Navigation extends Component {
   componentDidMount() {
     const loggedInUser = localStorage.getItem("user");
     if (loggedInUser) {
-      const foundUser = JSON.parse(loggedInUser);
-      this.setState({ user: foundUser["username"]});
+      this.setState({ user: JSON.parse(loggedInUser)["name"]});
+      /*const foundUser = JSON.parse(loggedInUser);
+      this.setState({ user: foundUser["username"]});*/
     }
     
 
@@ -40,18 +41,21 @@ export default class Navigation extends Component {
         <Navbar.Brand href="/">INESC TEC</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="mr-auto my-2 my-lg-0"
-            style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
-            <Nav.Link href="/chap">Chap</Nav.Link>
-            <Nav.Link href="/tasks">Tasks</Nav.Link>
+          
+            
             {this.state.user ? (
+              <Nav
+              className="mr-auto my-2 my-lg-0"
+              style={{ maxHeight: '100px' }}
+              navbarScroll
+              >
+              <Nav.Link href="/chap">Chap</Nav.Link>
+              <Nav.Link href="/tasks">Tasks</Nav.Link>
             <NavDropdown title={this.state.user} id="navbarScrollingDropdown">
               <NavDropdown.Item href="/plus">Logout</NavDropdown.Item>
-            </NavDropdown>): (<div></div>)}
-          </Nav>
+            </NavDropdown>
+            </Nav>): (<div></div>)}
+          
         </Navbar.Collapse>
       </Navbar>
     </div>
