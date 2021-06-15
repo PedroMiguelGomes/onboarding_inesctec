@@ -10,7 +10,7 @@ export default class Navigation extends Component {
     super(props);
 
     this.state = {
-      user: "",
+      user: "" ,
       userQuestions: [],
       questionsList: []
     };
