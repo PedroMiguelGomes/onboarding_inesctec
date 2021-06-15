@@ -22,16 +22,7 @@ export default class Navigation extends Component {
     const loggedInUser = localStorage.getItem("user");
     if (loggedInUser) {
       this.setState({ user: JSON.parse(loggedInUser)["name"]});
-      /*const foundUser = JSON.parse(loggedInUser);
-      this.setState({ user: foundUser["username"]});*/
     }
-    
-
-    /*axios.get("https://run.mocky.io/v3/9127525c-5192-48b9-a97f-02ce0fcfaa84")
-      .then((res) => {
-        const user = res.data;
-        this.setState({ user: user });
-      });*/
   }
 
   render() {

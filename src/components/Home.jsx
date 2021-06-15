@@ -34,12 +34,9 @@ export default function Login(){
   // login the user
   const handleSubmit = async e => {
     e.preventDefault();
-    // send the username and password to the server
     const response = await axios.get("https://run.mocky.io/v3/9127525c-5192-48b9-a97f-02ce0fcfaa84");
     if(username===response.data["name"] && password===response.data["password"]){
-        // set the state of the user
       setUser(response.data);
-      // store the user in localStorage
       localStorage.setItem("user" , JSON.stringify(response.data));
       let path = `/chap`; 
       history.push(path);
