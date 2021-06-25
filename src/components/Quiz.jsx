@@ -22,9 +22,13 @@ export default function Contact() {
     return email.length > 0;
   }
 
+  function validateNext() {
+    return password > 0;
+  }
+
   function activateLasers() {
     if(ind+1===cnt){
-      let path = `/`; 
+      let path = `/chap`; 
       history.push(path);
     }
     setInd(ind+1);
@@ -96,7 +100,7 @@ export default function Contact() {
                 <Button variant="primary" type="submit" disabled={!validateForm()}>
                   Responder
                 </Button>
-                <Button variant="primary" onClick={activateLasers} disabled={!validateForm()}>
+                <Button variant="primary" onClick={activateLasers} disabled={!validateNext()}>
                   Proximo
                 </Button>
                 <div>

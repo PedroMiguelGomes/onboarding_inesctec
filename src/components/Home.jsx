@@ -58,8 +58,10 @@ export default function Login(){
 
   return(
   <Container class="mx-auto" style={{ width:"300px"}}>
+    <br />
       <Image src="logo.png" />
       <Form className="" onSubmit={handleSubmit} >
+      <br />
         <Form.Group controlId="email" >
           <Form.Control 
           type="username" 
