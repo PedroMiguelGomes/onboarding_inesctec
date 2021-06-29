@@ -8,20 +8,21 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import "../App.css";
 export default function Login(){
-  const [c1, setC1] = useState();
-  const [c2, setC2] = useState();
+  const [c1, setC1] = useState([]);
+  const [c2, setC2] = useState(true);
   
+  axios.get('https://run.mocky.io/v3/d682f1d3-fe57-4c5f-ba74-688f355d4002').then(resp => {
+    if(c2){
+    c1.push(resp.data["progress"]["1"]);
+    c1.push(resp.data["progress"]["2"]);
+    console.log(c1);
+    setC2(false);
+    }
+  });
 
-  const test = async e => {
-    e.preventDefault();
-    const response = await axios.get("https://run.mocky.io/v3/d682f1d3-fe57-4c5f-ba74-688f355d4002");
-    console.log(response.data["progress"][2]+"a");
-    setC1(response.data["progress"]["1"]);
-    setC2(response.data["progress"]["2"]);
-  };
   
   return(
-  <Container onLoad={test}>
+  <Container>
     <br />
     <Row className="header">
       <Col></Col>
@@ -38,7 +39,7 @@ export default function Login(){
         <Image src="inesctec.jpeg" roundedCircle />
         <br />
         <br />
-        <ProgressBar now={c1} />
+        <ProgressBar now={c1[0]} />
 		</Link>
       </Col>
       <Col>
@@ -48,16 +49,18 @@ export default function Login(){
         <Image src="Man.jpeg" roundedCircle />
         <br />
         <br />
-        <ProgressBar now={c2} />
+        <ProgressBar now={c1[1]} />
 		</Link>
       </Col>
       <Col>
         <br />
+		    <Link class="nav-link">
         <h3>Subchapter 3</h3>
         <Image src="Man.jpeg" roundedCircle className="locked"/>
         <br />
         <br />
         <ProgressBar now={0} />
+		</Link>
       </Col>
     </Row>
     <br />
@@ -86,6 +89,7 @@ export default function Login(){
         <ProgressBar now={0} />
       </Col>
     </Row>
+
   </Container>
-);
-  }
+  );
+}
