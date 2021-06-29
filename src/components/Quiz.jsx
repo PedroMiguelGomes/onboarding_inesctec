@@ -13,7 +13,6 @@ export default function Contact() {
   const [password, setPassword] = useState(false);
   const [ind, setInd] = useState(0);
   const [cnt, setCnt] = useState(0);
-  const questions = [];
 
   const history = useHistory();
 
@@ -43,10 +42,10 @@ export default function Contact() {
     alert(ind+"|"+cnt);
     setPassword(true);
   }
-
+  //"https://run.mocky.io/v3/7482d1de-a002-4463-8c0c-46e274cb6f4f"
   return (
     <Container className="header">
-      <Get url="https://run.mocky.io/v3/7482d1de-a002-4463-8c0c-46e274cb6f4f">
+      <Get url="https://run.mocky.io/v3/1d5779c0-7df0-4bb2-8f57-f0ed9e552a04">
         {(error, response, isLoading, makeRequest, axios) => {
           if (error) {
             return (<div>Something bad happened: {error.message}</div>)
@@ -55,7 +54,7 @@ export default function Contact() {
             return (<div>Loading...</div>)
           }
           else if (response !== null) {
-            axios.get('https://run.mocky.io/v3/7482d1de-a002-4463-8c0c-46e274cb6f4f').then(resp => {
+            axios.get('https://run.mocky.io/v3/1d5779c0-7df0-4bb2-8f57-f0ed9e552a04').then(resp => {
               setCnt(resp.data.length);
             });
             return (

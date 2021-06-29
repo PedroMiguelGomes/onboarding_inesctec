@@ -7,14 +7,9 @@ import Button from "react-bootstrap/Button";
 const App = () => (
   <Container className="p-3 header">
     <h1 className="">Subchapter</h1>
-    <div class="vid">
-      <ResponsiveEmbed aspectRatio="16by9">
-        <embed type="video/webm" src="guide.mp4" />
-      </ResponsiveEmbed>
-    </div>
+
     <p class="bigtext">
-      Neste capitulo, vais aprender sobre algo.
-      Acho que aqui temos de usar o Axios.
+    Sabias que o INESC TEC é uma instituição privada sem fins lucrativos que se centra em atividades de investigação científica e desenvolvimento tecnológico, transferência de tecnologia, consultoria avançada e formação, e pré-incubação de novas empresas de base tecnológica? Temos um modelo de gestão único e diferenciador, aperfeiçoado ao longo de uma história que conta já com várias décadas. 
       <br />
       <Button href="/quiz">Questionario</Button>
     </p>
