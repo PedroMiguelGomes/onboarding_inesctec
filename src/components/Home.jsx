@@ -38,9 +38,6 @@ export default function Login(){
     if(username===response.data["name"] && password===response.data["password"]){
       setUser(response.data);
       localStorage.setItem("user" , JSON.stringify(response.data));
-      let path = `/chap`; 
-      history.push(path);
-      window.location.reload();
     }
   };
 

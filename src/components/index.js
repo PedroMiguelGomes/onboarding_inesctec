@@ -6,3 +6,4 @@ export { default as Tasks } from "./Tasks";
 export { default as Chap } from "./Chap";
 export { default as Plus } from "./Plus";
 export { default as Subchap } from "./Subchap";
+export { default as Logout } from "./Logout";

@@ -1,6 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
-import axios from 'axios';
-
+import React, { Component } from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
@@ -43,7 +41,7 @@ export default class Navigation extends Component {
               <Nav.Link href="/chap">Chap</Nav.Link>
               <Nav.Link href="/tasks">Tasks</Nav.Link>
             <NavDropdown title={this.state.user} id="navbarScrollingDropdown">
-              <NavDropdown.Item href="/plus">Logout</NavDropdown.Item>
+              <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
             </NavDropdown>
             </Nav>): (<div></div>)}
           
