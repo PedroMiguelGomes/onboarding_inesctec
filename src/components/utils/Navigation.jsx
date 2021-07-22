@@ -38,7 +38,7 @@ export default class Navigation extends Component {
               style={{ maxHeight: '100px' }}
               navbarScroll
               >
-              <Nav.Link href="/chap">Chap</Nav.Link>
+              <Nav.Link href="/chap">Levels</Nav.Link>
               <Nav.Link href="/tasks">Tasks</Nav.Link>
             <NavDropdown title={this.state.user} id="navbarScrollingDropdown">
               <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>

@@ -1,9 +1,9 @@
-export { default as Navigation } from "./Navigation";
-export { default as Footer } from "./Footer";
-export { default as Home } from "./Home";
+export { default as Navigation } from "./utils/Navigation";
+export { default as Footer } from "./utils/Footer";
+export { default as Home } from "./utils/Home";
+export { default as Logout } from "./utils/Logout";
 export { default as Quiz } from "./Quiz";
 export { default as Tasks } from "./Tasks";
 export { default as Chap } from "./Chap";
-export { default as Plus } from "./Plus";
-export { default as Subchap } from "./Subchap";
-export { default as Logout } from "./Logout";
+export { default as Introducao } from "./chapters/Introducao";
+export { default as Subchap1 } from "./chapters/Subchap1";
