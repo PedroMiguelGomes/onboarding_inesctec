@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Navigation, Footer, Home, Quiz, TasksInst, Chap, Logout, Introducao, Subchap1 } from "./components";
+import { Navigation, Footer, Home, Quiz, TasksInst, Chap, Logout, Introducao, Instituicao, TasksCESE } from "./components";
 
 function App() {
   return (
@@ -13,7 +13,8 @@ function App() {
           <Route path="/tasksInst" exact component={() => <TasksInst />} />
           <Route path="/chap" exact component={() => <Chap />} />
           <Route path="/introducao" exact component={() => <Introducao />} />
-          <Route path="/subchap1" exact component={() => <Subchap1 />} />
+          <Route path="/instituicao" exact component={() => <Instituicao />} />
+          <Route path="/tasksCESE" exact component={() => <TasksCESE />} />
           <Route path="/logout" exact component={() => <Logout />} />
         </Switch>
         <Footer />

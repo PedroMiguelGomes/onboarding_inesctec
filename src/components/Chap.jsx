@@ -33,16 +33,14 @@ export default class Chap extends React.Component {
       <Container>
         <br />
         <Row className="header">
-          <Col></Col>
           <Col>
             <h1>Acolhimento &amp; Integração</h1>
           </Col>
-          <Col></Col>
         </Row>
         <Row className="header">
           <Col>
             <br />
-            <Link class="nav-link" to="/introducao">
+            <Link className="nav-link" to="/introducao">
               <h3>Introdução</h3>
               <Image src="inesctec.jpeg" roundedCircle />
               <br />
@@ -52,9 +50,9 @@ export default class Chap extends React.Component {
           </Col>
           <Col>
             <br />
-            <Link class="nav-link" to="/subchap1">
+            <Link className="nav-link" to="/instituicao">
               <h3>Instituição</h3>
-              <Image src="Man.jpeg" roundedCircle />
+              <Image src="inesctec.jpeg" roundedCircle />
               <br />
               <br />
               <ProgressBar now={this.state.progress2} />
@@ -62,9 +60,9 @@ export default class Chap extends React.Component {
           </Col>
           <Col>
             <br />
-            <Link class="nav-link" to="/tasksInst">
+            <Link className="nav-link" to="/tasksInst">
               <h3>Questões Práticas</h3>
-              <Image src="logo.png" roundedCircle />
+              <Image src="inesctec.jpeg" roundedCircle />
               <br />
               <br />
               <ProgressBar now={this.state.progress3} />

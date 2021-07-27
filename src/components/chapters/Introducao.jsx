@@ -21,8 +21,7 @@ class Introducao extends Component {
 
         e.preventDefault();
 
-        //url/updateUserQuestion/userID/chapter/level/score/
-        console.log(this.state.completed);
+        //              url/updateUserQuestion/userID/chapter/level/score/
         if (this.state.completed === "false") {
             axios.post('http://127.0.0.1:8000/updateUserQuestion/' + this.state.userID + '/1/1/5/')
                 .then(res => {
@@ -38,7 +37,7 @@ class Introducao extends Component {
     componentDidMount() {
         this.setState({ user: JSON.parse(localStorage.getItem("user"))["name"] });
         this.setState({ userID: JSON.parse(localStorage.getItem("user"))["id"] });
-        axios.get('http://127.0.0.1:8000/questionLevel/1/1/1/')
+        axios.get('http://127.0.0.1:8000/questionXLevel/' + JSON.parse(localStorage.getItem("user"))["id"] + '/1/1/')
             .then(res => {
                 this.setState({ completed: res.data['question'] })
             })

@@ -6,4 +6,5 @@ export { default as Quiz } from "./Quiz";
 export { default as Chap } from "./Chap";
 export { default as Introducao } from "./chapters/Introducao";
 export { default as TasksInst } from "./chapters/TasksInst";
-export { default as Subchap1 } from "./chapters/Subchap1";
+export { default as Instituicao } from "./chapters/Instituicao";
+export { default as TasksCESE } from "./centers/TasksCESE";
