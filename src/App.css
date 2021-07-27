@@ -57,3 +57,21 @@
 .log{
   color: #61dafb;
 }
+
+.footer {
+  margin-top: 100px;
+}
+
+.titleIntroduction {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.nextLevel {
+  margin-top: 50px;
+}
+
+.desafios {
+  width: 70%;
+  margin: 40px auto;
+}

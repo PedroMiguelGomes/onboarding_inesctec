@@ -34,7 +34,7 @@ export default function Login(){
   // login the user
   const handleSubmit = async e => {
     e.preventDefault();
-    const response = await axios.get("https://run.mocky.io/v3/9127525c-5192-48b9-a97f-02ce0fcfaa84");
+    const response = await axios.get('http://127.0.0.1:8000/user/' + username + '/' + password + '/');
     if(username===response.data["name"] && password===response.data["password"]){
       setUser(response.data);
       localStorage.setItem("user" , JSON.stringify(response.data));

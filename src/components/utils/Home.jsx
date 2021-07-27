@@ -7,7 +7,7 @@ import Image from "react-bootstrap/Image";
 import axios from 'axios';
 import "../../App.css";
 
-export default function Login(){
+export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [now, setNow] = useState(true);
@@ -34,16 +34,20 @@ export default function Login(){
   // login the user
   const handleSubmit = async e => {
     e.preventDefault();
-    const response = await axios.get("http://127.0.0.1:8000/user/1/");
-    if(username===response.data["name"] && password===response.data["password"]){
-      setUser(response.data);
-      localStorage.setItem("user" , JSON.stringify(response.data));
+    const response = await axios.get('http://127.0.0.1:8000/users/');
+
+    for(var i = 0; i < response.data.length; i++) {
+      if (username === response.data[i].name && password === response.data[i].password) {
+        setUser(response.data[i]);
+        localStorage.setItem("user", JSON.stringify(response.data[i]));
+        break;
+      }
     }
-  }; 
+  };
 
 
   if (user) {
-    let path = `/chap`; 
+    let path = `/chap`;
     history.push(path);
     window.location.reload();
   }
@@ -53,31 +57,31 @@ export default function Login(){
   }
 
 
-  return(
-  <Container class="mx-auto" style={{ width:"300px"}}>
-    <br />
+  return (
+    <Container class="mx-auto" style={{ width: "300px" }}>
+      <br />
       <Image src="logo.png" />
       <Form className="" onSubmit={handleSubmit} >
-      <br />
+        <br />
         <Form.Group controlId="email" >
-          <Form.Control 
-          type="username" 
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)} />
+          <Form.Control
+            type="username"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)} />
         </Form.Group>
         <Form.Group controlId="password">
-          <Form.Control 
-          type="password" 
-          placeholder="Password" 
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}/>
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)} />
         </Form.Group>
         <Button variant="primary" type="submit" disabled={!validateForm()}>
           Login
         </Button>
-        
+
       </Form>
-  </Container>
+    </Container>
   );
 }

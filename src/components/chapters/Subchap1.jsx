@@ -6,32 +6,30 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { makeStyles } from '@material-ui/core/styles';
 import Quiz from "../Quiz"
 
 
 export default class Subchap1 extends React.Component {
 
   state = {
-    questions: [],
+    question1: [],
+    question2: [],
+    question3: [],
+    question4: [],
     userID: '',
   }
 
   componentDidMount() {
     this.setState({ userID: JSON.parse(localStorage.getItem("user"))["id"] });
-    axios.get('http://127.0.0.1:8000/questionsLevel/2/')
+    axios.get('http://127.0.0.1:8000/questionLevel/2/1/')
       .then(res => {
-        const questions = res.data['questions'];
-        console.log(questions);
-        this.setState({ questions });
+        const question1 = res.data['question'];
+        console.log(res.data['question']);
+        this.setState({ question1 });
       });
   }
 
   render() {
-
-    let questions=this.state.questions;
-    console.log(questions);
-    if(!Object.keys(questions)) return null;
 
     return (
       <Container className="p-3 header" >
@@ -61,9 +59,7 @@ export default class Subchap1 extends React.Component {
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              <ul>
-                {this.state.questions.map(question => <li>{question.question}</li>)}
-              </ul>
+                {this.state.question1.map((question) =><p>{question.question}</p>)}
             </Typography>
           </AccordionDetails>
         </Accordion>

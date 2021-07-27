@@ -55,7 +55,7 @@ class Introducao extends Component {
             <div>
                 <h3 className="titleIntroduction">Olá {this.state.user}, bem-vindo ao INESC TEC!</h3>
                 <h5>Para os próximos desafios recomendamos que vejas o nosso website.</h5>
-                <a href="https://www.inesctec.pt/pt/instituicao">Instituição INESC TEC</a>
+                <a href="https://www.inesctec.pt/pt/instituicao" target="_blank" rel="noreferrer">Instituição INESC TEC</a>
                 <br />
                 {button}
             </div>
