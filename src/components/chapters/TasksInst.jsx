@@ -27,10 +27,10 @@ export default class TasksInst extends Component {
     });
   }
 
-  routeChange(task) {
+  routeChange(taskID) {
 
     //url/updateUserTaskInst/userID/taskID/
-    axios.post('http://127.0.0.1:8000/updateUserTaskInst/' + JSON.parse(localStorage.getItem("user"))["id"] + '/' + task + '/')
+    axios.post('http://127.0.0.1:8000/updateUserTaskInst/' + JSON.parse(localStorage.getItem("user"))["id"] + '/' + taskID + '/')
       .then(res => {
         console.log(res);
         console.log(res.data);
@@ -64,7 +64,6 @@ export default class TasksInst extends Component {
                           <Button variant="success">Concluído</Button>
                         )
                       } else {
-                        console.log(task);
                         return (
                           <Button onClick={this.routeChange.bind(this, task.id)} variant="danger">Concluir Desafio</Button>
                         )

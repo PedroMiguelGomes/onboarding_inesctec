@@ -80,8 +80,8 @@ export default class TasksCESE extends Component {
                 <Card className="desafios">
                     <Card.Body>
                         <Card.Text>
-                            Parabéns, concluíste com sucesso a última etapa deste jogo. Sê bem-vindo! 
-                            <br/>
+                            Parabéns, concluíste com sucesso a última etapa deste jogo. Sê bem-vindo!
+                            <br />
                             O Serviço de Recursos Humanos. Para mais informações rh@inesctec.pt
                         </Card.Text>
                         <Button href="/chap" variant="info">Voltar Atrás</Button>

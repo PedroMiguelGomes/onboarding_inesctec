@@ -21,16 +21,16 @@ class Introducao extends Component {
 
         e.preventDefault();
 
-        //              url/updateUserQuestion/userID/chapter/level/score/
+        //url/updateUserQuestion/userID/chapter/level/score/
         if (this.state.completed === "false") {
-            axios.post('http://127.0.0.1:8000/updateUserQuestion/' + this.state.userID + '/1/1/5/')
+            axios.post('http://127.0.0.1:8000/updateUserQuestion/' + this.state.userID + '/5/')
                 .then(res => {
                     console.log(res);
                     console.log(res.data);
                 })
         }
 
-        let path = '/chap';
+        let path = '/instituicao';
         this.props.history.push(path);
     }
 
@@ -48,7 +48,7 @@ class Introducao extends Component {
         if (this.state.completed === "false") {
             button = <Button variant="primary" className="px-4 nextLevel" onClick={this.routeChange}>Concluir Nivel</Button>;
         } else {
-            button = <Button variant="success" className="px-4 nextLevel" onClick={this.routeChange}>Voltar atrás</Button>;
+            button = <Button variant="info" className="px-4 nextLevel" onClick={this.routeChange}>Instituição</Button>;
         }
         return (
             <div>

@@ -11,6 +11,7 @@ export default class Navigation extends Component {
 
     this.state = {
       user: "",
+      center: "",
     };
   }
 
@@ -18,6 +19,8 @@ export default class Navigation extends Component {
     const loggedInUser = localStorage.getItem("user");
     if (loggedInUser) {
       this.setState({ user: JSON.parse(loggedInUser)["name"] });
+      console.log(JSON.parse(loggedInUser));
+      this.setState({ center: JSON.parse(loggedInUser)["centerService"] });
     }
   }
 
@@ -43,8 +46,8 @@ export default class Navigation extends Component {
                   style={{ maxHeight: '100px' }}
                   navbarscroll="true"
                 >
-                  <Nav.Link href="/chap">Levels</Nav.Link>
-                  <Nav.Link href="/tasksCESE">Tasks</Nav.Link>
+                  <Nav.Link href="/chap">Acolhimento & Integração</Nav.Link>
+                  <Nav.Link href="/tasksCESE">{this.state.center}</Nav.Link>
                 </Nav>
                 <Nav
                   className="ml-auto my-2 my-lg-0"
