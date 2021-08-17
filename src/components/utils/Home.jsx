@@ -34,7 +34,7 @@ export default function Login() {
   // login the user
   const handleSubmit = async e => {
     e.preventDefault();
-    const response = await axios.get('http://127.0.0.1:8000/users/');
+    const response = await axios.get('https://blooming-island-42972.herokuapp.com/users/');
 
     for(var i = 0; i < response.data.length; i++) {
       if (username === response.data[i].name && password === response.data[i].password) {

@@ -19,10 +19,10 @@ export default class TasksCESE extends Component {
 
 
     componentDidMount() {
-        axios.get('http://127.0.0.1:8000/tasks/').then(res => {
+        axios.get('https://blooming-island-42972.herokuapp.com/tasks/').then(res => {
             this.setState({ tasks: res.data });
         });
-        axios.get('http://127.0.0.1:8000/user/' + JSON.parse(localStorage.getItem("user"))["id"] + '/').then(res => {
+        axios.get('https://blooming-island-42972.herokuapp.com/user/' + JSON.parse(localStorage.getItem("user"))["id"] + '/').then(res => {
             this.setState({ remainingUserTasks: res.data.tasksInst })
         });
     }
@@ -30,7 +30,7 @@ export default class TasksCESE extends Component {
     routeChange(task) {
 
         //url/updateUserTaskInst/userID/taskID/
-        axios.post('http://127.0.0.1:8000/updateUserTaskInst/' + JSON.parse(localStorage.getItem("user"))["id"] + '/' + task + '/')
+        axios.post('https://blooming-island-42972.herokuapp.com/updateUserTaskInst/' + JSON.parse(localStorage.getItem("user"))["id"] + '/' + task + '/')
             .then(res => {
                 console.log(res);
                 console.log(res.data);

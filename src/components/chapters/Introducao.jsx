@@ -23,7 +23,7 @@ class Introducao extends Component {
 
         //url/updateUserQuestion/userID/chapter/level/score/
         if (this.state.completed === "false") {
-            axios.post('http://127.0.0.1:8000/updateUserQuestion/' + this.state.userID + '/5/')
+            axios.post('https://blooming-island-42972.herokuapp.com/updateUserQuestion/' + this.state.userID + '/5/')
                 .then(res => {
                     console.log(res);
                     console.log(res.data);
@@ -37,7 +37,7 @@ class Introducao extends Component {
     componentDidMount() {
         this.setState({ user: JSON.parse(localStorage.getItem("user"))["name"] });
         this.setState({ userID: JSON.parse(localStorage.getItem("user"))["id"] });
-        axios.get('http://127.0.0.1:8000/questionXLevel/' + JSON.parse(localStorage.getItem("user"))["id"] + '/1/1/')
+        axios.get('https://blooming-island-42972.herokuapp.com/questionXLevel/' + JSON.parse(localStorage.getItem("user"))["id"] + '/1/1/')
             .then(res => {
                 this.setState({ completed: res.data['question'] })
             })

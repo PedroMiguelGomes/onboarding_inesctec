@@ -25,12 +25,12 @@ class Instituicao extends React.Component {
 
   componentDidMount() {
     this.setState({ userID: JSON.parse(localStorage.getItem("user"))["id"] });
-    axios.get('http://127.0.0.1:8000/questions/')
+    axios.get('https://blooming-island-42972.herokuapp.com/questions/')
       .then(res => {
         const questions = res.data;
         this.setState({ questions });
       });
-    axios.get('http://127.0.0.1:8000/user/' + JSON.parse(localStorage.getItem("user"))["id"] + '/')
+    axios.get('https://blooming-island-42972.herokuapp.com/user/' + JSON.parse(localStorage.getItem("user"))["id"] + '/')
       .then(res => {
         const remainingQuestions = res.data.questions;
         this.setState({ remainingQuestions });
@@ -45,7 +45,7 @@ class Instituicao extends React.Component {
     console.log(this.state.answer)
 
     if (this.state.answer === question.correct.toString()) {
-      axios.post('http://127.0.0.1:8000/updateUserQuestion/' + this.state.userID + '/' + question.id + '/')
+      axios.post('https://blooming-island-42972.herokuapp.com/updateUserQuestion/' + this.state.userID + '/' + question.id + '/')
         .then(res => {
           console.log(res);
         })
