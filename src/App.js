@@ -5,7 +5,7 @@ import { Navigation, Footer, Home, TasksInst, Chap, Logout, Introducao, Institui
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Navigation />
         <Switch>
           <Route path="/onboarding_inesctec" exact component={() => <Home />} />
