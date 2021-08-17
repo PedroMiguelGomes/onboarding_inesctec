@@ -8,7 +8,7 @@ function App() {
       <Router>
         <Navigation />
         <Switch>
-          <Route path="/" exact component={() => <Home />} />
+          <Route path="/onboarding_inesctec" exact component={() => <Home />} />
           <Route path="/tasksInst" exact component={() => <TasksInst />} />
           <Route path="/chap" exact component={() => <Chap />} />
           <Route path="/introducao" exact component={() => <Introducao />} />

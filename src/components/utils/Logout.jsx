@@ -11,7 +11,7 @@ export default function Logout(){
   setUsername("");
   setPassword("");
   localStorage.clear();
-  history.push("/");
+  history.push("/onboarding_inesctec");
   window.location.reload();
 }
 
