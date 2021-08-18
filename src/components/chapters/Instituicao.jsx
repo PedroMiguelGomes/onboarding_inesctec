@@ -24,13 +24,13 @@ class Instituicao extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ userID: JSON.parse(localStorage.getItem("user"))["id"] });
+    this.setState({ userID: JSON.parse(sessionStorage.getItem("user"))["id"] });
     axios.get('https://blooming-island-42972.herokuapp.com/questions/')
       .then(res => {
         const questions = res.data;
         this.setState({ questions });
       });
-    axios.get('https://blooming-island-42972.herokuapp.com/user/' + JSON.parse(localStorage.getItem("user"))["id"] + '/')
+    axios.get('https://blooming-island-42972.herokuapp.com/user/' + JSON.parse(sessionStorage.getItem("user"))["id"] + '/')
       .then(res => {
         const remainingQuestions = res.data.questions;
         this.setState({ remainingQuestions });

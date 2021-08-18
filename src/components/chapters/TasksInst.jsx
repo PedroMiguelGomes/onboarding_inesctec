@@ -22,7 +22,7 @@ export default class TasksInst extends Component {
     axios.get('https://blooming-island-42972.herokuapp.com/tasks/').then(res => {
       this.setState({ tasks: res.data });
     });
-    axios.get('https://blooming-island-42972.herokuapp.com/user/' + JSON.parse(localStorage.getItem("user"))["id"] + '/').then(res => {
+    axios.get('https://blooming-island-42972.herokuapp.com/user/' + JSON.parse(sessionStorage.getItem("user"))["id"] + '/').then(res => {
       this.setState({ remainingUserTasks: res.data.tasksInst })
     });
   }
@@ -30,7 +30,7 @@ export default class TasksInst extends Component {
   routeChange(taskID) {
 
     //url/updateUserTaskInst/userID/taskID/
-    axios.post('https://blooming-island-42972.herokuapp.com/updateUserTaskInst/' + JSON.parse(localStorage.getItem("user"))["id"] + '/' + taskID + '/')
+    axios.post('https://blooming-island-42972.herokuapp.com/updateUserTaskInst/' + JSON.parse(sessionStorage.getItem("user"))["id"] + '/' + taskID + '/')
       .then(res => {
         console.log(res);
         console.log(res.data);

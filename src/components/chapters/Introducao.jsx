@@ -35,9 +35,9 @@ class Introducao extends Component {
     }
 
     componentDidMount() {
-        this.setState({ user: JSON.parse(localStorage.getItem("user"))["name"] });
-        this.setState({ userID: JSON.parse(localStorage.getItem("user"))["id"] });
-        axios.get('https://blooming-island-42972.herokuapp.com/questionXLevel/' + JSON.parse(localStorage.getItem("user"))["id"] + '/1/1/')
+        this.setState({ user: JSON.parse(sessionStorage.getItem("user"))["name"] });
+        this.setState({ userID: JSON.parse(sessionStorage.getItem("user"))["id"] });
+        axios.get('https://blooming-island-42972.herokuapp.com/questionXLevel/' + JSON.parse(sessionStorage.getItem("user"))["id"] + '/1/1/')
             .then(res => {
                 this.setState({ completed: res.data['question'] })
             })

@@ -19,7 +19,7 @@ export default class Chap extends React.Component {
 
 
   componentDidMount() {
-    setTimeout(() => {axios.get('https://blooming-island-42972.herokuapp.com/progressUser/' + JSON.parse(localStorage.getItem("user"))["id"] + '/').then(resp => {
+    setTimeout(() => {axios.get('https://blooming-island-42972.herokuapp.com/progressUser/' + JSON.parse(sessionStorage.getItem("user"))["id"] + '/').then(resp => {
         this.setState({ progress1: resp.data["progress"]["1"] });
         this.setState({ progress2: resp.data["progress"]["2"] });
         this.setState({ progress3: resp.data["progress"]["3"] });

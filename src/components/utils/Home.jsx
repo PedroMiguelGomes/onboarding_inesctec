@@ -16,7 +16,7 @@ export default function Login() {
   const history = useHistory();
 
   useEffect(() => {
-    const loggedInUser = localStorage.getItem("user");
+    const loggedInUser = sessionStorage.getItem("user");
     if (loggedInUser) {
       const foundUser = JSON.parse(loggedInUser);
       setUser(foundUser);
@@ -24,12 +24,7 @@ export default function Login() {
   }, []);
 
   // logout the user
-  const handleLogout = () => {
-    setUser("");
-    setUsername("");
-    setPassword("");
-    localStorage.clear();
-  };
+  
 
   // login the user
   const handleSubmit = async e => {
@@ -39,7 +34,7 @@ export default function Login() {
     for(var i = 0; i < response.data.length; i++) {
       if (username === response.data[i].name && password === response.data[i].password) {
         setUser(response.data[i]);
-        localStorage.setItem("user", JSON.stringify(response.data[i]));
+        sessionStorage.setItem("user", JSON.stringify(response.data[i]));
         break;
       }
     }
@@ -58,7 +53,7 @@ export default function Login() {
 
 
   return (
-    <Container class="mx-auto" style={{ width: "300px" }}>
+    <Container className="mx-auto" style={{ width: "300px" }}>
       <br />
       <Image src="logo.png" />
       <Form className="" onSubmit={handleSubmit} >
