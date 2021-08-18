@@ -13,6 +13,8 @@ class Instituicao extends React.Component {
   constructor(props) {
     super(props);
 
+    this.routeChange = this.routeChange.bind(this);
+
     this.state = {
       questions: [],
       answer: 0,
@@ -55,15 +57,21 @@ class Instituicao extends React.Component {
         window.location.reload();
       }, 1000);
     }
-
-
   }
+
+  routeChange(e) {
+
+    e.preventDefault();
+    let path = '/tasksInst';
+    this.props.history.push(path);
+}
 
   validateForm() {
     return this.state.answer > 0;
   }
 
   render() {
+    let button = <Button variant="info" onClick={this.routeChange}>Questões Práticas</Button>
 
     return (
       <Container className="p-3 header" >
@@ -362,7 +370,7 @@ class Instituicao extends React.Component {
               ferramentas que temos ao teu dispor.
               <br />
               <br />
-              <Button variant="info" href="/tasksInst">Questões Práticas</Button>
+              {button}
             </Card.Text>
           </Card.Body>
         </Card>

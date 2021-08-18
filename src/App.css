@@ -99,3 +99,12 @@
   background-color: #000000;
   color: #0091BE;
 }
+
+.buttonLogout {
+  border: 0;
+  background-color: white;
+}
+
+.buttonLogout:hover {
+  background-color: transparent;
+}

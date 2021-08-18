@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import axios from 'axios';
-
+import { withRouter } from 'react-router-dom';
 import { Card, Button } from "react-bootstrap";
 
 
-export default class TasksInst extends Component {
+class TasksInst extends Component {
 
   constructor(props) {
     super(props);
 
     this.routeChange = this.routeChange.bind(this);
+    this.routeChange2 = this.routeChange2.bind(this);
 
     this.state = {
       tasks: [],
@@ -37,6 +38,13 @@ export default class TasksInst extends Component {
       });
 
     window.location.reload();
+  }
+
+  routeChange2(e) {
+
+    e.preventDefault();
+    let path = '/tasksCESE';
+    this.props.history.push(path);
   }
 
   render() {
@@ -81,10 +89,10 @@ export default class TasksInst extends Component {
             <Card.Text>
               Parabéns! Concluíste com sucesso a segunda etapa deste jogo. Vamos conhecer o teu serviço/centro.
             </Card.Text>
-            <Button href="/tasksCESE" variant="info">Centro/Serviço</Button>
+            <Button onClick={this.routeChange2} variant="info">Centro/Serviço</Button>
           </Card.Body>
         </Card>
       </div>
     );
   }
-}
+} export default withRouter(TasksInst);

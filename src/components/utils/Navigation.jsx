@@ -64,7 +64,7 @@ class Navigation extends Component {
                   navbarscroll="true"
                 >
                   <NavDropdown className="nome" title={this.state.user} id="navbarScrollingDropdown">
-                    <NavDropdown.Item><button type="button" onClick={this.handleLogout}>Logout</button></NavDropdown.Item>
+                    <NavDropdown.Item><button type="button" className="buttonLogout" onClick={this.handleLogout}>Logout</button></NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
               </>
