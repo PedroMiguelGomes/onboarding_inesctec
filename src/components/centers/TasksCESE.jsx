@@ -2,14 +2,16 @@ import React, { Component } from "react";
 import axios from 'axios';
 
 import { Card, Button } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
 
 
-export default class TasksCESE extends Component {
+class TasksCESE extends Component {
 
     constructor(props) {
         super(props);
 
         this.routeChange = this.routeChange.bind(this);
+        this.routeChange2 = this.routeChange2.bind(this);
 
         this.state = {
             tasks: [],
@@ -37,6 +39,13 @@ export default class TasksCESE extends Component {
             });
 
         window.location.reload();
+    }
+
+    routeChange2(e) {
+        e.preventDefault();
+
+        let path='/chap';
+        this.props.history.push(path);
     }
 
     render() {
@@ -84,10 +93,10 @@ export default class TasksCESE extends Component {
                             <br />
                             O Serviço de Recursos Humanos. Para mais informações rh@inesctec.pt
                         </Card.Text>
-                        <Button href="/chap" variant="info">Voltar Atrás</Button>
+                        <Button onClick={this.routeChange2} variant="info">Voltar Atrás</Button>
                     </Card.Body>
                 </Card>
             </div>
         );
     }
-}
+} export default withRouter(TasksCESE);
