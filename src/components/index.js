@@ -6,3 +6,4 @@ export { default as Introducao } from "./chapters/Introducao";
 export { default as TasksInst } from "./chapters/TasksInst";
 export { default as Instituicao } from "./chapters/Instituicao";
 export { default as TasksCESE } from "./centers/TasksCESE";
+export { default as Form } from "./chapters/Form";

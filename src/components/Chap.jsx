@@ -15,6 +15,7 @@ export default class Chap extends React.Component {
     progress1: "",
     progress2: "",
     progress3: "",
+    progress4: "",
   }
 
 
@@ -23,6 +24,7 @@ export default class Chap extends React.Component {
         this.setState({ progress1: resp.data["progress"]["1"] });
         this.setState({ progress2: resp.data["progress"]["2"] });
         this.setState({ progress3: resp.data["progress"]["3"] });
+        this.setState({ progress4: resp.data["progress"]["4"] });
     })}, 100);
   }
 
@@ -42,7 +44,7 @@ export default class Chap extends React.Component {
             <br />
             <Link className="nav-link" to="/introducao">
               <h3>Introdução</h3>
-              <Image src="inesctec.jpeg" roundedCircle />
+              <Image className="logos" src="instructions.jpg" roundedCircle />
               <br />
               <br />
               <ProgressBar now={this.state.progress1} />
@@ -52,7 +54,7 @@ export default class Chap extends React.Component {
             <br />
             <Link className="nav-link" to="/instituicao">
               <h3>Instituição</h3>
-              <Image src="inesctec.jpeg" roundedCircle />
+              <Image className="logos" src="institution.png" roundedCircle />
               <br />
               <br />
               <ProgressBar now={this.state.progress2} />
@@ -62,12 +64,26 @@ export default class Chap extends React.Component {
             <br />
             <Link className="nav-link" to="/tasksInst">
               <h3>Questões Práticas</h3>
-              <Image src="inesctec.jpeg" roundedCircle />
+              <Image className="logos" src="practice.png" roundedCircle />
               <br />
               <br />
               <ProgressBar now={this.state.progress3} />
             </Link>
           </Col>
+        </Row>
+        <Row>
+          <Col></Col>
+          <Col md="6">
+            <br/>
+            <Link className="nav-link" to="/form">
+              <h3>Questionário</h3>
+              <Image className="logos" src="form.png" roundedCircle />
+              <br />
+              <br />
+              <ProgressBar now={this.state.progress4} />
+            </Link>
+          </Col>
+          <Col></Col>
         </Row>
       </Container >
     );

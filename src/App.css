@@ -112,3 +112,8 @@
 .logoHome {
   max-width: 100%;
 }
+
+.logos {
+  width: 200px;
+  height: 200px;
+}
