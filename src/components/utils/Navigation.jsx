@@ -37,14 +37,16 @@ class Navigation extends Component {
     return (
       <div className="navigation">
         <Navbar className="navbarColor" variant="dark" expand="lg" >
-          <Navbar.Brand href="/chap">
-            <img
-              src="logo.png"
-              width="auto"
-              height="30"
-              className="d-inline-block align-top"
-              alt="React Bootstrap logo"
-            />
+          <Navbar.Brand>
+            <Link className="nav-link" to="/chap">
+              <img
+                src="logo.png"
+                width="auto"
+                height="30"
+                className="d-inline-block align-top"
+                alt="React Bootstrap logo"
+              />
+            </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarscroll" />
           <Navbar.Collapse id="navbarscroll">

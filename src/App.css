@@ -108,3 +108,7 @@
 .buttonLogout:hover {
   background-color: transparent;
 }
+
+.logoHome {
+  max-width: 100%;
+}
